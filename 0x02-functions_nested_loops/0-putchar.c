@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 
 /**
  * main - A program that prints _putchar
@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
+	write(STDOUT_FILENO, "_putchar\n", 9);
 
 	return (0);
 }
