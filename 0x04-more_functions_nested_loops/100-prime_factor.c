@@ -2,13 +2,11 @@
 #include <math.h>
 
 /**
- * main - initializes the number.
- *
  * largest_prime_factor - Finds the larfest prime factor.
  *
  * @n: Checks the factor division.
  *
- * Return: Always 0.
+ * Return: laegestFactor
  */
 
 long largest_prime_factor(long n)
@@ -39,10 +37,18 @@ long largest_prime_factor(long n)
 	return (largestFactor);
 }
 
+/**
+ * main - Initializes the number
+ *
+ * Return: Always 0
+ */
+
 int main(void)
 {
 	long number = 612852475143;
-	long largestFactor = largest_prime_factor(number);
-	printf("%ld\n", largestFactor);
+	long largestFactor = largest_prime_factor(number)
+	{
+		printf("%ld\n", largestFactor);
+	}
 	return (0);
 }
