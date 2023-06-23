@@ -46,7 +46,7 @@ long largest_prime_factor(long n)
 int main(void)
 {
 	long number = 612852475143;
-	long largestFactor = largest_prime_factor(number)
+	long largestFactor = largest_prime_factor(number);
 	{
 		printf("%ld\n", largestFactor);
 	}
