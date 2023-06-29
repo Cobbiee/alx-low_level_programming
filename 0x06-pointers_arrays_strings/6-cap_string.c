@@ -17,11 +17,7 @@ char *cap_string(char *str)
 			*ptr -= 32;
 			cap = 0;
 		}
-		else if (*ptr == ' ' || *ptr == '\t' || *ptr == '\n' ||
-			*ptr == ',' || *ptr == ';' || *ptr == '.' ||
-			*ptr == '!' || *ptr == '?' || *ptr == '"' ||
-			*ptr == '(' || *ptr == ')' || *ptr == '{' ||
-			*ptr == '}')
+		else if (*ptr == ' ' || *ptr == '\t' || *ptr == '\n' || *ptr == ',' || *ptr == ';' || *ptr == '.' || *ptr == '!' || *ptr == '?' || *ptr == '"' || *ptr == '(' || *ptr == ')' || *ptr == '{' || *ptr == '}')
 		{
 			cap = 1;
 		}
