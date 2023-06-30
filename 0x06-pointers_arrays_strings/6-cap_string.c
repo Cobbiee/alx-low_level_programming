@@ -1,25 +1,40 @@
 #include "main.h"
 
 /**
- * cap_string - Capitalizes all word of a string
- * @str: string to be capitalized
- * Return: Pointer to a string
+ * is_separator - Checks if a character is aword separartor
+ * @c: THe character to check
+ *
+ * Return: 1 if the character is a separator, 0 otherwise
  */
-char *cap_string(char *str)
+int is_separator(char c)
 {
-	int cap = 1;
-	char *ptr = str;
+	char sep[] = " \t\n,;.!?\"(){}";
+	int i;
 
-	while (*ptr)
+	for (i = 0; sep[i] != '\0'; i++)
 	{
-		if (cap && (*ptr >= 'a' && *ptr <= 'z'))
+		if (sep[i] == c)
+			return (1);
+	}
+	return (0);
+}
+
+/**
+ * cap_string - Capitalizes all words of a string
+ * @str: The string to capitalize
+ *
+ * Return: A pointer to the modified string
+ */
+char cap_string(char *str)
+{
+	int j;
+
+	for (j = 0; str[j] != '\0'; j++)
+	{
+		if (j == 0 || is_separator(str[j - 1]))
 		{
-			*ptr -= 32;
-			cap = 0;
-		}
-		else if (*ptr == ' ' || *ptr == '\t' || *ptr == '\n' || *ptr == ',' || *ptr == ';' || *ptr == '.' || *ptr == '!' || *ptr == '?' || *ptr == '"' || *ptr == '(' || *ptr == ')' || *ptr == '{' || *ptr == '}')
-		{
-			cap = 1;
+			if (str[j] >= 'a' && str[j] <= 'z')
+				str[j] = str[j] - 32;
 		}
 	}
 	return (str);
