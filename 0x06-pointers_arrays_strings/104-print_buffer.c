@@ -1,34 +1,78 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
-* print_buffer - prints a buffer
- * @b: the address of the memory to print
- * @size: the size of the memory to print
+ * isPrintableASCII - determines if n is a printable ASCII char
+ * @n: integer
+ * Return: 1 if true, 0 if false
+ */
+int isPrintableASCII(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * printHexes - print hex values for string b in formatted form
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printHexes(char *b, int start, int end)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < end)
+			printf("%02x", *(b + start + i));
+		else
+			printf("  ");
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * printASCII - print ascii values for string b,
+ * formatted to replace nonprintable chars with '.'
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: string
+ * @size: size of buffer
  */
 void print_buffer(char *b, int size)
 {
-	int offset, byte_index, char_index;
+	int start, end;
 
-	for (offset = 0; offset < size; offset += 10)
+	if (size > 0)
 	{
-		/* print offset */
-		printf("%08x: ", offset);
-
-		/* print bytes in hex */
-		for (byte_index = 0; byte_index < 10; byte_index++)
+		for (start = 0; start < size; start += 10)
 		{
-			(offset + byte_index < size) ? printf("%02x", b[offset + byte_index])
-				: printf("  ");
-			(byte_index % 2) ? printf(" ") : 0;
+			end = (size - start < 10) ? size - start : 10;
+			printf("%08x: ", start);
+			printHexes(b, start, end);
+			printASCII(b, start, end);
+			printf("\n");
 		}
-
-		/* print bytes in ascii */
-		for (char_index = 0; char_index < 10; char_index++)
-			(offset + char_index < size) ? printf("%c", (b[offset + char_index] >= 32 &&
-				b[offset + char_index] <= 126) ? b[offset + char_index] : '.') : 0;
-
+	} else
 		printf("\n");
-	}
-
-	(size <= 0) ? printf("\n") : 0;
 }
