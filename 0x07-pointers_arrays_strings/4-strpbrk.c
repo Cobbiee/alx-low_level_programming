@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * inCharSet - checks if a character is in a set of characters
  * @c: character to be checked
