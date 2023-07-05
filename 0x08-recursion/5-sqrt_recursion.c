@@ -11,10 +11,7 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	if (n == 0 || n == 1)
-		return (n);
-
-	return (sqrt_helper(n, n / 2));
+	return (sqrt_helper(n, 0));
 }
 
 /**
@@ -26,11 +23,11 @@ int _sqrt_recursion(int n)
  */
 int sqrt_helper(int n, int i)
 {
-	if (i == 0)
-		return (-1);
-
 	if (i * i == n)
 		return (i);
 
-	return (sqrt_helper(n, i - 1));
+	if (i * i > n)
+		return (-1);
+
+	return (sqrt_helper(n, i + 1));
 }
