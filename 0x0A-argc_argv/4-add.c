@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, num, result;
+	int i, num;
 	int sum = 0;
 
 	if (argc == 1)
@@ -29,10 +29,10 @@ int main(int argc, char *argv[])
 					return (1);
 			}
 
-			result = sum + num;
+			sum = sum + num;
 	}
 
-	printf("%d\n", result);
+	printf("%d\n", sum);
 
 	return (0);
 }
