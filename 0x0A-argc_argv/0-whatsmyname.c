@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point of the program
- * argc: The number of command-line arguments (unused variable)
- * argv: The array of string containing the arguments
+ * @argc: The number of command-line arguments (unused variable)
+ * @argv: The array of string containing the arguments
  *
  * Return: Always 0
  */
