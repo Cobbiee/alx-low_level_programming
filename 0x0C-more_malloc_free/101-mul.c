@@ -14,12 +14,12 @@ unsigned int multiply(unsigned int num1, unsigned int num2)
 }
 
 /**
- * is_positive_number - Checks of a string is a positve number
+ * is_pos_num - Checks of a string is a positve number
  * @str: The string to check
  *
  * Return: 1 if the string is a positive number, 0 otherwise
  */
-int is_positive_number(char *str)
+int is_pos_num(char *str)
 {
 	while (*str)
 	{
@@ -48,11 +48,11 @@ int main(int argc, char *argv[])
 			return (1);
 	}
 
-	if (!is_positive_number(argv[1]) || !is_positive_number(argv[2]))
-			{
-				printf("Error\n");
-					return (1);
-			}
+	if (!is_pos_num(argv[1]) || !is_pos_num(argv[2]))
+	{
+		printf("Error\n");
+		return (1);
+	}
 
 			num1 = atoi(argv[1]);
 			num2 = atoi(argv[2]);
