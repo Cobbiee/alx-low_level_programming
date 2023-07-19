@@ -3,38 +3,33 @@
 
 /**
  * main - Prints the opcodes of its own main function
- * @argc: Number of command-line arguments
- * @argv: An array of command-line arguments
+ * @argc: The number of command-line arguments
+ * @argv: An array of command-line argument strings
  *
- * Return: 0 on success, 1 or 2 on error
+ * Return: Always 0
  */
-int main(int argc, int *argv[])
+int main(int argc, char *argv[])
 {
-	int i, n;
+    int i, num_bytes;
 
-	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
+    if (argc != 2)
+    {
+        printf("Error\n");
+        exit(1);
+    }
 
-	n = atoi(argv[1]);
+    num_bytes = atoi(argv[1]);
 
-	if (n < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
+    if (num_bytes < 0)
+    {
+        printf("Error\n");
+        exit(2);
+    }
 
-	for (i = 0; i < n; i++)
-	{
-		printf("%02x", ((unsigned char *)main)[i]);
+    for (i = 0; i < num_bytes; i++)
+        printf("%02x ", ((unsigned char *)main)[i]);
 
-		if (i < n - 1)
-			printf(" ");
-	}
+    printf("\n");
 
-	printf("\n");
-
-	return (0);
+    return 0;
 }
