@@ -25,7 +25,7 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(args, int));
 				break;
 			case 'f':
-				print("%f", va_arg(args, int));
+				printf("%f", va_arg(args, double));
 				break;
 			case 's':
 				str = va_arg(args, char *);
@@ -41,7 +41,7 @@ void print_all(const char * const format, ...)
 
 		if (format[i + 1] != '\0')
 			printf(", ");
-			i++;
+		i++;
 	}
 
 	va_end(args);
