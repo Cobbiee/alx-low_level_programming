@@ -19,7 +19,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (new_node == NULL)
 	{
-		return (NULL)
+		return (NULL);
 	}
 
 	/* duplicate the string and store it in new_node */
