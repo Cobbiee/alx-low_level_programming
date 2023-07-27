@@ -23,7 +23,7 @@ list_t *add_node(list_t **head, const char *str)
 	}
 
 	/* duplicate the string and store it in new_node */
-	new_node->str = srtdup(str);
+	new_node->str = strdup(str);
 
 	if (new_node->str == NULL)
 	{
