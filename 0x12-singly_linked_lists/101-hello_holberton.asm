@@ -12,4 +12,4 @@ main:			; entry point
     ret			; return
 
 section .data		; data segment
-msg: db "Hello, Holberton\n", 10, 0	; message string with newline and null terminator
+msg: db 'Hello, Holberton\n', 10, 0	; message string with newline and null terminator
