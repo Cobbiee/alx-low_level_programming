@@ -55,7 +55,8 @@ int main(int argc, char *argv[])
  */
 void elf_validation(unsigned char *e_ident)
 {
-	if (e_ident[0] == 0x7f && e_ident[1] == 'E' && e_ident[2] == 'L' && e_ident[3] == 'F')
+	if (e_ident[0] == 0x7f && e_ident[1] == 'E'
+			&& e_ident[2] == 'L' && e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
